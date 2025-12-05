@@ -1,231 +1,207 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
 <html>
-	<head>
-		<title>GPReddy2525</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+    <title>GPReddy2525 - Interactive Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <span style="left: 10%; animation-delay: 0s;"></span>
+        <span style="left: 20%; animation-delay: 2s;"></span>
+        <span style="left: 30%; animation-delay: 4s;"></span>
+        <span style="left: 40%; animation-delay: 6s;"></span>
+        <span style="left: 50%; animation-delay: 8s;"></span>
+        <span style="left: 60%; animation-delay: 10s;"></span>
+        <span style="left: 70%; animation-delay: 12s;"></span>
+        <span style="left: 80%; animation-delay: 14s;"></span>
+        <span style="left: 90%; animation-delay: 16s;"></span>
+    </div>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">GPReddy2525</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="scrollToSection('home')">Home</a></li>
+                <li><a href="#projects" onclick="scrollToSection('projects')">Projects</a></li>
+                <li><a href="#visualizations" onclick="scrollToSection('visualizations')">Visualizations</a></li>
+                <li><a href="#certifications" onclick="scrollToSection('certifications')">Certifications</a></li>
+                <li><a href="#contact" onclick="scrollToSection('contact')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Guru Prasad Reddy Malla<br /></h1>
-						<h2>Data Analyst</h2>
-						<p>I’m a Data Analyst who can turn your "What now?" into "Wow!"  <br />
-							Skilled in Python, SQL,Tableau, and Excel, with experience in data automation, visualization, and  data analysis. <br />
-							Passionate about transforming complex data into clear, actionable insights. <a ></a> for <a > </a><br />
-						 </p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Guru Prasad Reddy Malla</h1>
+            <h2>Data Analyst</h2>
+            <p>I'm a Data Analyst who can turn your "What now?" into "Wow!"<br />
+            Skilled in Python, SQL, Tableau, and Excel, with experience in data automation, visualization, and data analysis.<br />
+            Passionate about transforming complex data into clear, actionable insights.</p>
+            <a href="#projects" class="btn" onclick="scrollToSection('projects')">View My Work</a>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('projects')">
+            <svg width="30" height="50" viewBox="0 0 30 50">
+                <rect x="5" y="5" width="20" height="40" rx="10" fill="none" stroke="#fff" stroke-width="2"/>
+                <circle cx="15" cy="15" r="3" fill="#fff">
+                    <animate attributeName="cy" from="15" to="30" dur="1.5s" repeatCount="indefinite"/>
+                </circle>
+            </svg>
+        </div>
+    </section>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo"> Projects</a>
-					</header>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Data Analysis Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <img src="images/google.playstore.jpeg" alt="PlayStore Analysis" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">Python</span>
+                    <h3 class="project-title">PlayStore Data Analysis</h3>
+                    <p class="project-description">Analyzed app ratings based on category, content rating, and size. Top categories: Games, Communication, and Productivity.</p>
+                    <a href="https://github.com/Guru-2525/BI_Playstore-data-analysis-assignment-1-/blob/main/Playstore-dataanalysis-Python_assignment-1.ipynb" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Data Analysis</a></li>
-							<li><a href="generic.html">Data visualizations</a></li>
-							<li><a href="elements.html">certifications</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.linkedin.com/in/gpreddy2525/" class="icon brands alt fa-linkedin"><span class="label">fa-Linkedin</span></a></li>
-							<li><a href="https://github.com/Guru-2525?tab=repositories" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-							</ul>
-					</nav>
+            <div class="project-card fade-in" style="animation-delay: 0.2s;">
+                <img src="images/DALL·E 2025-02-23 21.24.53 - A simple yet impactful e-commerce data visualization. A clean laptop screen displays basic bar graphs and pie charts representing sales and customer i.webp" alt="E-Commerce" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">Python</span>
+                    <h3 class="project-title">E-Commerce Data Analysis</h3>
+                    <p class="project-description">Analyzed UK-based online retail dataset uncovering customer purchasing patterns and sales trends.</p>
+                    <a href="https://github.com/Guru-2525/BI_E-commerce-dataanalysis-python-assignment-2-/blob/main/python%20assignment%202.ipynb" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
 
-				<!-- Main -->
-					<div id="main">
+            <div class="project-card fade-in" style="animation-delay: 0.4s;">
+                <img src="images/DALL·E 2025-02-23 21.27.06 - A clean and simple data visualization concept for ticket resolution. A laptop screen displays charts and graphs analyzing ticket resolution time, stat.webp" alt="Ticket Resolution" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">Python</span>
+                    <h3 class="project-title">Ticket Resolution Analysis</h3>
+                    <p class="project-description">Analyzed ticket data to uncover trends in query distribution, response times, and resolution efficiency.</p>
+                    <a href="https://github.com/Guru-2525/BI-DECODE-11.3/blob/main/Hackathon.ipynb" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-							
-									<h2><a href="https://github.com/Guru-2525/BI_Playstore-data-analysis-assignment-1-/blob/main/Playstore-dataanalysis-Python_assignment-1.ipynb">PlayStore Data Analysis<br />
-									In Python</a></h2>
-									<p>This project analyzes app ratings based on category, content rating, and size to identify key factors influencing user preferences.
-										                                             <h3>Key Findings:</h3>
-										✅ Top Preferred Categories: Games, Communication, and Productivity apps receive the most reviews.<br />
-										✅ Size Matters: Larger apps generally receive better ratings (above 3.5).		                 <br />
-										✅ Popular Genres: Tools, Entertainment, and Education are the most preferred.					 <br />
-										For an app to succeed, it should belong to highly rated categories, have an Everyone 10+ content rating, and be of substantial size. Apps with these characteristics should focus on boosting visibility in search results for greater reach and user engagement.</p>
-								</header>
-								<a href="https://github.com/Guru-2525/BI_Playstore-data-analysis-assignment-1-/blob/main/Playstore-dataanalysis-Python_assignment-1.ipynb" class="image main"><img src="images/google.playstore.jpeg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="https://github.com/Guru-2525/BI_Playstore-data-analysis-assignment-1-/blob/main/Playstore-dataanalysis-Python_assignment-1.ipynb" class="button large">Full Story</a></li>
-								</ul>
-							</article>
+            <div class="project-card fade-in" style="animation-delay: 0.6s;">
+                <img src="images/sqlpic.png" alt="SQL Analysis" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">SQL</span>
+                    <h3 class="project-title">HR & Northwind Analysis</h3>
+                    <p class="project-description">Analyzed HR and Northwind databases using SQL for employee and product insights.</p>
+                    <a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-1(SQL).sql" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										<span class="text"> Python</span>
-										<h2><a href="https://github.com/Guru-2525/BI_E-commerce-dataanalysis-python-assignment-2-/blob/main/python%20assignment%202.ipynb">E-Commerce <br />
-										Data analysis</a></h2>
-									</header>
-									<a href="https://github.com/Guru-2525/BI_E-commerce-dataanalysis-python-assignment-2-/blob/main/python%20assignment%202.ipynb" class="image fit"><img src="images/DALL·E 2025-02-23 21.24.53 - A simple yet impactful e-commerce data visualization. A clean laptop screen displays basic bar graphs and pie charts representing sales and customer i.webp" alt="" /></a>
-									<p>Analyzed a UK-based online retail dataset to uncover customer purchasing patterns and sales trends. Key tasks included: Exploratory Data Analysis (EDA), Data Cleaning, Customer Insights, Order Patterns. </p><br /><br />
-									<ul class="actions special">
-										<li><a href="https://github.com/Guru-2525/BI_E-commerce-dataanalysis-python-assignment-2-/blob/main/python%20assignment%202.ipynb" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="text"> Python</span>
-										<h2><a href="https://github.com/Guru-2525/BI-DECODE-11.3/blob/main/Hackathon.ipynb">Ticket Resolution <br />
-											Analysis</a></h2>
-									</header>
-									<a href="https://github.com/Guru-2525/BI-DECODE-11.3/blob/main/Hackathon.ipynb" class="image fit"><img src="images/DALL·E 2025-02-23 21.27.06 - A clean and simple data visualization concept for ticket resolution. A laptop screen displays charts and graphs analyzing ticket resolution time, stat.webp" alt="" /></a>
-									<p>Analyzed ticket data to uncover trends in query distribution, response times, and resolution efficiency using Python. Identified bottlenecks, optimized resource allocation, and improved support processes. Key insights included longest-resolved queries and high-volume project phases.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/Guru-2525/BI-DECODE-11.3/blob/main/Hackathon.ipynb" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="text"> SQL</span>
-										<h2><a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-1(SQL).sql"> HR & Northwind<br />
-											Data Analysis</a></h2>
-									</header>
-									<a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-1(SQL).sql" class="image fit"><img src="images/sqlpic.png" alt="" /></a>
-									<p>Analyzed HR and Northwind databases using SQL to extract employee and product insights. Tasks included salary calculations, product inventory analysis, and data formatting. Demonstrated proficiency in SQL queries, data aggregation, and database management for actionable business insights.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-1(SQL).sql" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="text"> SQL</span>
-										<h2><a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-2(sql).sql">Superstores <br />
-											Data Analysis</a></h2>
-									</header>
-									<a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-2(sql).sql" class="image fit"><img src="images/224529590-829d20b8-d812-416e-ba33-c11a11132d7f.png" alt="" /></a>
-									<p>Analyzed Superstores database using SQL to uncover customer behavior, sales trends, and product profitability. Tasks included sales calculations, regional performance analysis, and identifying least profitable products. Delivered actionable insights for business optimization.</p>
-									<ul class="actions special">
-										<li><a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-2(sql).sql" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<!-- <article>
-									<header>
-										<span class="date">April 11, 2017</span>
-										<h2><a href="#">Odio magna<br />
-										sed consectetur</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 7, 2017</span>
-										<h2><a href="#">Augue lorem<br />
-										primis vestibulum</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-							</section> -->
+            <div class="project-card fade-in" style="animation-delay: 0.8s;">
+                <img src="images/224529590-829d20b8-d812-416e-ba33-c11a11132d7f.png" alt="Superstores" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">SQL</span>
+                    <h3 class="project-title">Superstores Data Analysis</h3>
+                    <p class="project-description">Analyzed Superstores database to uncover customer behavior, sales trends, and product profitability.</p>
+                    <a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-2(sql).sql" target="_blank" class="btn">View Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-						<!-- Footer -->
-							<!-- <footer> -->
-								<!-- <div class="pagination"> -->
-									<!--<a href="#" class="previous">Prev</a>-->
-									<!-- <a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a>
-								</div>
-							</footer> -->
+    <!-- Visualizations Section -->
+    <section id="visualizations">
+        <h2 class="section-title">Data Visualizations</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <img src="images/Videogames.png" alt="Video Game Sales" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">Excel</span>
+                    <h3 class="project-title">Video Game Sales Dashboard</h3>
+                    <p class="project-description">Interactive dashboard analyzing video game sales trends from 1985 to 2016. Visualized key insights including peak sales periods and regional contributions.</p>
+                </div>
+            </div>
 
-					</div>
+            <div class="project-card fade-in" style="animation-delay: 0.2s;">
+                <img src="images/Tableau.png" alt="Tableau Dashboard" class="project-image">
+                <div class="project-content">
+                    <span class="project-tag">Tableau</span>
+                    <h3 class="project-title">Tableau Dashboard Analysis</h3>
+                    <p class="project-description">Dashboard on employee data analysis and US Population income analysis with interactive visualizations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>Tallahassee<br />
-								   FL 32304</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(850) 339-1894</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">gpreddy2526@gmail.com</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									
-									<li><a href="https://www.linkedin.com/in/gpreddy2525/" class="icon brands alt fa-linkedin"><span class="label">fa-Linkedin</span></a></li>
-									<li><a href="https://github.com/Guru-2525?tab=repositories" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <div class="cert-grid">
+            <div class="cert-card fade-in">
+                <img src="images/BOARD INFINITY (DATA SCIENCE certificate).png" alt="Data Science Certificate" class="cert-image">
+            </div>
+            <div class="cert-card fade-in" style="animation-delay: 0.2s;">
+                <img src="images/publication.png" alt="Publication" class="cert-image">
+            </div>
+            <div class="cert-card fade-in" style="animation-delay: 0.4s;">
+                <img src="images/BI.png" alt="BI Certificate" class="cert-image">
+            </div>
+            <div class="cert-card fade-in" style="animation-delay: 0.6s;">
+                <img src="images/sql.png" alt="SQL Certificate" class="cert-image">
+            </div>
+            <div class="cert-card fade-in" style="animation-delay: 0.8s;">
+                <img src="images/yif.png" alt="YIF Certificate" class="cert-image">
+            </div>
+        </div>
+    </section>
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-form fade-in">
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-			</div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Address</h3>
+                <p>Tallahassee, FL 32304</p>
+            </div>
+            <div>
+                <h3>Phone</h3>
+                <p>(850) 339-1894</p>
+            </div>
+            <div>
+                <h3>Email</h3>
+                <p>gpreddy2526@gmail.com</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank">in</a>
+            <a href="https://github.com/Guru-2525?tab=repositories" target="_blank">gh</a>
+        </div>
+        <p style="margin-top: 2rem; opacity: 0.7;">© 2025 Guru Prasad Reddy Malla. All rights reserved.</p>
+    </footer>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+    <script src="assets/js/script.js"></script>
+</body>
 </html>
