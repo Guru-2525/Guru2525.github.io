@@ -3,50 +3,52 @@ const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
 const navLinks = document.querySelectorAll('.nav-link');
 
-navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-    
-    // Animate hamburger
-    const spans = navToggle.querySelectorAll('span');
-    if (navMenu.classList.contains('active')) {
-        spans[0].style.transform = 'rotate(45deg) translateY(8px)';
-        spans[1].style.opacity = '0';
-        spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
-    } else {
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
-    }
-});
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        
+        const spans = navToggle.querySelectorAll('span');
+        if (navMenu.classList.contains('active')) {
+            spans[0].style.transform = 'rotate(45deg) translateY(8px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+        } else {
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+    });
+}
 
-// Close mobile menu when clicking on a link
+// Close mobile menu when clicking on links
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        const spans = navToggle.querySelectorAll('span');
-        spans[0].style.transform = 'none';
-        spans[1].style.opacity = '1';
-        spans[2].style.transform = 'none';
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
+        if (navToggle) {
+            const spans = navToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
     });
 });
 
 // Navbar Scroll Effect
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (navbar) {
+        if (window.pageYOffset > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     }
-    
-    lastScroll = currentScroll;
 });
 
-// Smooth Scroll
+// Smooth Scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -87,8 +89,11 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe all animated elements
-const animatedElements = document.querySelectorAll('.section-header, .project-card, .skill-card, .cert-item, .stat-item, .skill-bar-item, .about-text, .about-skills, .info-item');
+// Observe animated elements
+const animatedElements = document.querySelectorAll(
+    '.section-header, .project-card, .skill-card, .cert-item, .stat-item, .skill-bar-item, .about-text, .about-skills, .info-item'
+);
+
 animatedElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
@@ -101,11 +106,7 @@ const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
-        // Show success message
         alert('Thank you for your message! I will get back to you soon.');
-        
-        // Reset form
         contactForm.reset();
     });
 }
@@ -117,15 +118,15 @@ window.addEventListener('scroll', () => {
     const heroImage = document.querySelector('.hero-image');
     const floatingSkills = document.querySelector('.floating-skills');
     
-    if (heroText) {
+    if (heroText && scrolled < window.innerHeight) {
         heroText.style.transform = `translateY(${scrolled * 0.3}px)`;
     }
     
-    if (heroImage) {
+    if (heroImage && scrolled < window.innerHeight) {
         heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
     }
     
-    if (floatingSkills) {
+    if (floatingSkills && scrolled < window.innerHeight) {
         floatingSkills.style.transform = `translateY(${scrolled * 0.15}px)`;
     }
 });
@@ -161,16 +162,19 @@ function animateCounter(element, target, duration = 2000) {
     
     const timer = setInterval(() => {
         current += increment;
+        const hasPlus = element.textContent.includes('+');
+        const hasPercent = element.textContent.includes('%');
+        
         if (current >= target) {
-            element.textContent = target + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+            element.textContent = target + (hasPlus ? '+' : hasPercent ? '%' : '');
             clearInterval(timer);
         } else {
-            element.textContent = Math.floor(current) + (element.textContent.includes('+') ? '+' : element.textContent.includes('%') ? '%' : '');
+            element.textContent = Math.floor(current) + (hasPlus ? '+' : hasPercent ? '%' : '');
         }
     }, 16);
 }
 
-// Observe stat numbers
+// Observe stat numbers for counter animation
 const statObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -178,7 +182,7 @@ const statObserver = new IntersectionObserver((entries) => {
             const targetText = statNumber.textContent;
             const target = parseInt(targetText.replace(/\D/g, ''));
             
-            if (target) {
+            if (target && !isNaN(target)) {
                 animateCounter(statNumber, target);
                 statObserver.unobserve(statNumber);
             }
@@ -190,7 +194,7 @@ document.querySelectorAll('.stat-number').forEach(stat => {
     statObserver.observe(stat);
 });
 
-// Floating skill bubbles interactive effect
+// Floating skill bubbles pause on hover
 const skillBubbles = document.querySelectorAll('.skill-bubble');
 skillBubbles.forEach(bubble => {
     bubble.addEventListener('mouseenter', () => {
@@ -202,98 +206,30 @@ skillBubbles.forEach(bubble => {
     });
 });
 
-// Custom Cursor Effect
-const cursor = document.createElement('div');
-cursor.classList.add('custom-cursor');
-document.body.appendChild(cursor);
-
-const cursorDot = document.createElement('div');
-cursorDot.classList.add('cursor-dot');
-document.body.appendChild(cursorDot);
-
-let mouseX = 0;
-let mouseY = 0;
-let cursorX = 0;
-let cursorY = 0;
-
-document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    
-    cursorDot.style.left = e.clientX + 'px';
-    cursorDot.style.top = e.clientY + 'px';
-});
-
-function animateCursor() {
-    const speed = 0.15;
-    
-    cursorX += (mouseX - cursorX) * speed;
-    cursorY += (mouseY - cursorY) * speed;
-    
-    cursor.style.left = cursorX + 'px';
-    cursor.style.top = cursorY + 'px';
-    
-    requestAnimationFrame(animateCursor);
-}
-
-animateCursor();
-
-// Add cursor styles
-const cursorStyle = document.createElement('style');
-cursorStyle.textContent = `
-    .custom-cursor {
-        width: 40px;
-        height: 40px;
-        border: 2px solid var(--primary-color);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        transition: all 0.1s ease;
-        display: none;
-        transform: translate(-50%, -50%);
-    }
-    
-    .cursor-dot {
-        width: 8px;
-        height: 8px;
-        background: var(--primary-color);
-        border-radius: 50%;
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        display: none;
-        transform: translate(-50%, -50%);
-        box-shadow: 0 0 10px var(--primary-color);
-    }
-    
-    @media (min-width: 968px) {
-        .custom-cursor,
-        .cursor-dot {
-            display: block;
-        }
-        
-        body {
-            cursor: none;
-        }
-        
-        a, button {
-            cursor: none;
-        }
-    }
-    
-    a:hover ~ .custom-cursor,
-    button:hover ~ .custom-cursor {
-        transform: translate(-50%, -50%) scale(1.5);
-        background: rgba(99, 102, 241, 0.2);
-    }
-`;
-document.head.appendChild(cursorStyle);
-
 // Scroll to top button
 const scrollTopBtn = document.createElement('button');
 scrollTopBtn.innerHTML = '↑';
 scrollTopBtn.classList.add('scroll-top-btn');
+scrollTopBtn.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+    z-index: 999;
+    transition: all 0.3s ease;
+`;
+
 document.body.appendChild(scrollTopBtn);
 
 window.addEventListener('scroll', () => {
@@ -311,35 +247,15 @@ scrollTopBtn.addEventListener('click', () => {
     });
 });
 
-// Add scroll top button style
-const scrollTopStyle = document.createElement('style');
-scrollTopStyle.textContent = `
-    .scroll-top-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: var(--gradient);
-        color: var(--text-primary);
-        border: none;
-        border-radius: 50%;
-        font-size: 1.5rem;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        box-shadow: var(--glow);
-        z-index: 999;
-        transition: all 0.3s ease;
-    }
-    
-    .scroll-top-btn:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 40px rgba(99, 102, 241, 0.6);
-    }
-`;
-document.head.appendChild(scrollTopStyle);
+scrollTopBtn.addEventListener('mouseenter', () => {
+    scrollTopBtn.style.transform = 'translateY(-5px)';
+    scrollTopBtn.style.boxShadow = '0 20px 40px rgba(99, 102, 241, 0.6)';
+});
+
+scrollTopBtn.addEventListener('mouseleave', () => {
+    scrollTopBtn.style.transform = 'translateY(0)';
+    scrollTopBtn.style.boxShadow = '0 0 20px rgba(99, 102, 241, 0.5)';
+});
 
 // Initialize on page load
 window.addEventListener('load', () => {
@@ -351,14 +267,16 @@ window.addEventListener('load', () => {
         const rect = bar.getBoundingClientRect();
         if (rect.top < window.innerHeight) {
             const width = bar.getAttribute('data-width');
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 300);
+            if (width) {
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            }
         }
     });
 });
 
-// Add hover effect to project cards
+// Enhanced hover effect for project cards
 document.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-15px) scale(1.02)';
@@ -369,55 +287,4 @@ document.querySelectorAll('.project-card').forEach(card => {
     });
 });
 
-// Add particle effect on click
-document.addEventListener('click', (e) => {
-    createParticles(e.clientX, e.clientY);
-});
-
-function createParticles(x, y) {
-    for (let i = 0; i < 6; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.cssText = `
-            position: fixed;
-            width: 5px;
-            height: 5px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            left: ${x}px;
-            top: ${y}px;
-            box-shadow: 0 0 10px var(--primary-color);
-        `;
-        
-        document.body.appendChild(particle);
-        
-        const angle = (Math.PI * 2 * i) / 6;
-        const velocity = 2;
-        const vx = Math.cos(angle) * velocity;
-        const vy = Math.sin(angle) * velocity;
-        
-        let posX = x;
-        let posY = y;
-        let opacity = 1;
-        
-        const animate = () => {
-            posX += vx * 3;
-            posY += vy * 3;
-            opacity -= 0.02;
-            
-            particle.style.left = posX + 'px';
-            particle.style.top = posY + 'px';
-            particle.style.opacity = opacity;
-            
-            if (opacity > 0) {
-                requestAnimationFrame(animate);
-            } else {
-                particle.remove();
-            }
-        };
-        
-        animate();
-    }
-}
+console.log('Dark Portfolio Loaded Successfully! 🌌');
