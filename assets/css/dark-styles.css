@@ -322,7 +322,7 @@ body {
     border-color: transparent;
 }
 
-/* Profile Image */
+/* Profile Image - Natural Look */
 .hero-image {
     position: relative;
     animation: fadeIn 1.5s ease;
@@ -330,30 +330,31 @@ body {
 
 .profile-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 450px;
+    height: 450px;
     margin: 0 auto;
 }
 
 .profile-glow {
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 120%;
+    height: 120%;
+    top: -10%;
+    left: -10%;
     border-radius: 50%;
-    background: var(--gradient-neon);
-    filter: blur(40px);
-    opacity: 0.6;
-    animation: pulse 3s ease-in-out infinite;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+    filter: blur(50px);
+    animation: pulseGlow 4s ease-in-out infinite;
 }
 
-@keyframes pulse {
+@keyframes pulseGlow {
     0%, 100% {
+        opacity: 0.5;
         transform: scale(1);
-        opacity: 0.6;
     }
     50% {
-        transform: scale(1.1);
         opacity: 0.8;
+        transform: scale(1.05);
     }
 }
 
@@ -361,20 +362,17 @@ body {
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 5px solid rgba(99, 102, 241, 0.5);
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.5);
-    animation: float 6s ease-in-out infinite;
+    animation: floatProfile 6s ease-in-out infinite;
 }
 
 .profile-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.5));
 }
 
-@keyframes float {
+@keyframes floatProfile {
     0%, 100% {
         transform: translateY(0);
     }
@@ -383,25 +381,25 @@ body {
     }
 }
 
-/* Floating Skills */
+/* Floating Skills - Positioned Around Profile */
 .floating-skills {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
-    left: 0;
+    right: 0;
     pointer-events: none;
 }
 
 .skill-bubble {
     position: absolute;
-    background: rgba(30, 36, 65, 0.9);
+    background: rgba(30, 36, 65, 0.95);
     backdrop-filter: blur(10px);
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1.3rem;
     border-radius: 50px;
     display: flex;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.7rem;
     border: 1px solid rgba(99, 102, 241, 0.3);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     animation: floatSkill 6s ease-in-out infinite;
@@ -418,47 +416,49 @@ body {
 }
 
 .skill-icon {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 .skill-name {
     font-weight: 600;
+    font-size: 0.9rem;
     color: var(--text-primary);
 }
 
+/* Position bubbles around the profile image (right side) */
 .bubble-1 {
-    top: 10%;
-    left: 5%;
+    top: 5%;
+    right: 45%;
     animation-delay: 0s;
 }
 
 .bubble-2 {
     top: 15%;
-    right: 10%;
+    right: 5%;
     animation-delay: 1s;
 }
 
 .bubble-3 {
-    top: 35%;
-    left: 8%;
+    top: 40%;
+    right: 50%;
     animation-delay: 2s;
 }
 
 .bubble-4 {
     top: 45%;
-    right: 5%;
+    right: 0%;
     animation-delay: 3s;
 }
 
 .bubble-5 {
-    bottom: 25%;
-    left: 10%;
+    bottom: 20%;
+    right: 45%;
     animation-delay: 4s;
 }
 
 .bubble-6 {
-    bottom: 15%;
-    right: 8%;
+    bottom: 10%;
+    right: 10%;
     animation-delay: 5s;
 }
 
