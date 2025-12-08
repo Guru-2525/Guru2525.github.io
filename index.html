@@ -1,21 +1,218 @@
 <!DOCTYPE HTML>
-<!--
-   COMPLETE DARK PORTFOLIO HTML
-   Replace your entire index.html with this
--->
 <html lang="en">
 <head>
-    <title>GP Reddy | Data Analyst</title>
+    <title>GP Reddy | Data Scientist & Software Developer</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Stylesheet -->
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="assets/css/dark-styles.css" />
+    
+    <style>
+/* Additional styles for new sections */
+.education-section {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--dark-card);
+    border-radius: 15px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.education-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.edu-item {
+    margin-bottom: 1.5rem;
+}
+
+.edu-item:last-child {
+    margin-bottom: 0;
+}
+
+.edu-item h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.edu-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Timeline Styles */
+.experience {
+    background: var(--dark-bg);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: var(--gradient);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.timeline-content {
+    width: 45%;
+    background: var(--dark-card);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: var(--glow);
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--gradient);
+    border-radius: 50%;
+    border: 4px solid var(--dark-bg);
+    box-shadow: var(--glow);
+    z-index: 10;
+}
+
+.timeline-date {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.timeline-content h4 {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.timeline-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.timeline-content li {
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.timeline-content li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.cert-item.featured {
+    border: 2px solid var(--primary-color);
+    padding: 2rem;
+    text-align: center;
+}
+
+.cert-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--gradient);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.cert-item.featured h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.cert-item.featured p {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.info-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.info-item a:hover {
+    color: var(--primary-color);
+}
+
+/* Responsive Timeline */
+@media (max-width: 968px) {
+    .timeline::before {
+        left: 0;
+    }
+    
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .timeline-content {
+        width: 100%;
+        margin-left: 2rem;
+    }
+    
+    .timeline-dot {
+        left: 0;
+        transform: translateX(0);
+    }
+}
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -25,8 +222,10 @@
             <div class="nav-menu" id="navMenu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
             <button class="nav-toggle" id="navToggle">
@@ -39,7 +238,6 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <!-- Animated Stars Background -->
         <div class="stars-bg">
             <div class="stars"></div>
             <div class="stars2"></div>
@@ -53,10 +251,11 @@
                     <span class="title-line">GP</span>
                     <span class="title-line">Reddy</span>
                 </h1>
-                <h2 class="hero-subtitle">Data Analyst & Engineer</h2>
+                <h2 class="hero-subtitle">Data Scientist & Software Developer</h2>
                 <p class="hero-description">
-                    Transforming complex data into actionable insights through 
-                    Python, SQL, Tableau & Excel. I turn your "What now?" into "Wow!"
+                    A strategic data professional with expertise in Python, SQL, Machine Learning, 
+                    and Azure Cloud. MS in Data Science from Florida State University. 
+                    Transforming complex data into actionable insights through advanced analytics.
                 </p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -73,22 +272,24 @@
                             <path fill="currentColor" d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                     </a>
+                    <a href="mailto:gpreddy2526@gmail.com" class="social-icon" title="Email">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                            <path fill="currentColor" d="M12 12.713l-11.985-9.713h23.97l-11.985 9.713zm0 2.574l-12-9.725v15.438h24v-15.438l-12 9.725z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
             
-            <!-- Anime Profile Picture -->
             <div class="hero-image">
                 <div class="profile-container">
                     <div class="profile-glow"></div>
                     <div class="profile-image">
-                        <!-- Replace this URL with your anime picture -->
-                        <img src="images/profile.png" alt="Profile" onerror="this.src='https://ui-avatars.com/api/?name=GP+Reddy&size=400&background=667eea&color=fff&bold=true&format=svg'">
+                        <img src="images/profile.png" alt="GP Reddy Profile" onerror="this.src='https://ui-avatars.com/api/?name=GP+Reddy&size=400&background=667eea&color=fff&bold=true&format=svg'">
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Floating Skills Around Profile -->
         <div class="floating-skills">
             <div class="skill-bubble bubble-1">
                 <span class="skill-icon">🐍</span>
@@ -99,20 +300,20 @@
                 <span class="skill-name">SQL</span>
             </div>
             <div class="skill-bubble bubble-3">
-                <span class="skill-icon">📊</span>
-                <span class="skill-name">Tableau</span>
+                <span class="skill-icon">☁️</span>
+                <span class="skill-name">Azure</span>
             </div>
             <div class="skill-bubble bubble-4">
-                <span class="skill-icon">📈</span>
-                <span class="skill-name">Excel</span>
+                <span class="skill-icon">📊</span>
+                <span class="skill-name">Power BI</span>
             </div>
             <div class="skill-bubble bubble-5">
-                <span class="skill-icon">📉</span>
-                <span class="skill-name">Analytics</span>
+                <span class="skill-icon">🤖</span>
+                <span class="skill-name">ML</span>
             </div>
             <div class="skill-bubble bubble-6">
-                <span class="skill-icon">🎨</span>
-                <span class="skill-name">Visualization</span>
+                <span class="skill-icon">📈</span>
+                <span class="skill-name">Tableau</span>
             </div>
         </div>
     </section>
@@ -126,172 +327,38 @@
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Data Analyst with a passion for insights</h3>
+                    <h3>Strategic Data Professional</h3>
                     <p>
-                        I specialize in transforming raw data into compelling stories that drive business decisions. 
-                        With expertise in Python, SQL, Tableau, and Excel, I've successfully delivered projects 
-                        ranging from e-commerce analytics to ticket resolution optimization.
+                        A strategic data professional with a strong foundation in data science, machine learning, 
+                        and cloud technologies. Skilled in Python, SQL, Power BI, and Azure, with hands-on experience 
+                        in automation, dashboard development, and predictive analytics.
                     </p>
                     <p>
-                        Currently based in Florida, I'm passionate about leveraging data to solve 
-                        real-world problems and create meaningful impact through visualization and analysis.
+                        Proven ability to translate complex data into actionable insights that drive business performance. 
+                        Currently based in Jacksonville, Florida, with a Master's degree in Data Science from Florida State University.
                     </p>
+                    
+                    <div class="education-section">
+                        <h3>Education</h3>
+                        <div class="edu-item">
+                            <h4>Florida State University</h4>
+                            <p>MS in Data Science - Computer Science | GPA: 3.58 | Jun 2025</p>
+                        </div>
+                        <div class="edu-item">
+                            <h4>Amity University</h4>
+                            <p>B.Tech in Electronics and Communication | GPA: 3.3 | Apr 2022</p>
+                        </div>
+                    </div>
+                    
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">Projects</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Certifications</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">100%</span>
-                            <span class="stat-label">Dedication</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-skills">
-                    <h3>Technical Skills</h3>
-                    <div class="skill-bars">
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Python & Data Analysis</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>SQL & Databases</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Tableau & Power BI</span>
-                                <span class="skill-percentage">80%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Excel & Statistics</span>
-                                <span class="skill-percentage">88%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="88%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">My Expertise</span>
-                <h2 class="section-title">Skills & Technologies</h2>
-            </div>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">🐍</div>
-                    <h3>Python</h3>
-                    <p>Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🗄️</div>
-                    <h3>SQL</h3>
-                    <p>MySQL, PostgreSQL, Query Optimization, Database Design</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📊</div>
-                    <h3>Tableau</h3>
-                    <p>Interactive Dashboards, Data Storytelling, Visual Analytics</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📈</div>
-                    <h3>Excel</h3>
-                    <p>Advanced Formulas, Pivot Tables, VBA, Power Query</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">📉</div>
-                    <h3>Statistics</h3>
-                    <p>Hypothesis Testing, Regression, A/B Testing</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">🎯</div>
-                    <h3>Business Intelligence</h3>
-                    <p>ETL Processes, Data Modeling, KPI Development</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">My Work</span>
-                <h2 class="section-title">Featured Projects</h2>
-            </div>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/google.playstore.jpeg" alt="PlayStore Analysis">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Guru-2525/BI_Playstore-data-analysis-assignment-1-/blob/main/Playstore-dataanalysis-Python_assignment-1.ipynb" target="_blank" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Python</span>
-                        <h3>PlayStore Data Analysis</h3>
-                        <p>Analyzed app ratings based on category, content rating, and size. Identified top-performing categories and user preferences.</p>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/DALL·E 2025-02-23 21.24.53 - A simple yet impactful e-commerce data visualization. A clean laptop screen displays basic bar graphs and pie charts representing sales and customer i.webp" alt="E-Commerce Analysis">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Guru-2525/BI_E-commerce-dataanalysis-python-assignment-2-/blob/main/python%20assignment%202.ipynb" target="_blank" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Python</span>
-                        <h3>E-Commerce Data Analysis</h3>
-                        <p>UK-based online retail dataset analysis revealing customer purchasing patterns and sales trends.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/DALL·E 2025-02-23 21.27.06 - A clean and simple data visualization concept for ticket resolution. A laptop screen displays charts and graphs analyzing ticket resolution time, stat.webp" alt="Ticket Resolution">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Guru-2525/BI-DECODE-11.3/blob/main/Hackathon.ipynb" target="_blank" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Python</span>
+                            <span class="project-tag">Python</span>
                         <h3>Ticket Resolution Analysis</h3>
-                        <p>Analyzed ticket data to uncover trends in query distribution and optimize resolution efficiency.</p>
+                        <p>Analyzed ticket data to uncover trends in query distribution and optimize resolution efficiency. Delivered actionable insights for improving customer support operations.</p>
                     </div>
                 </div>
 
-                <!-- Project 4 -->
+                <!-- Project 7 - Video Game Sales -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/Videogames.png" alt="Video Game Sales">
@@ -302,11 +369,11 @@
                     <div class="project-content">
                         <span class="project-tag">Excel</span>
                         <h3>Video Game Sales Dashboard</h3>
-                        <p>Interactive dashboard analyzing sales trends from 1985 to 2016 with regional insights.</p>
+                        <p>Interactive Excel dashboard analyzing sales trends from 1985 to 2016 with regional insights, genre analysis, and platform performance metrics.</p>
                     </div>
                 </div>
 
-                <!-- Project 5 -->
+                <!-- Project 8 - Tableau Dashboards -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/Tableau.png" alt="Tableau Dashboard">
@@ -317,11 +384,11 @@
                     <div class="project-content">
                         <span class="project-tag">Tableau</span>
                         <h3>Employee & Income Analysis</h3>
-                        <p>Comprehensive dashboards for employee data and US population income analysis.</p>
+                        <p>Comprehensive Tableau dashboards for employee data visualization and US population income analysis with interactive filters and KPIs.</p>
                     </div>
                 </div>
 
-                <!-- Project 6 -->
+                <!-- Project 9 - SQL Analysis -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/sqlpic.png" alt="SQL Analysis">
@@ -331,8 +398,8 @@
                     </div>
                     <div class="project-content">
                         <span class="project-tag">SQL</span>
-                        <h3>HR & Northwind Analysis</h3>
-                        <p>Database analysis for employee insights and product inventory management.</p>
+                        <h3>HR & Northwind Database Analysis</h3>
+                        <p>Complex SQL queries for employee insights and product inventory management. Includes advanced joins, subqueries, and performance optimization.</p>
                     </div>
                 </div>
             </div>
@@ -344,14 +411,21 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Achievements</span>
-                <h2 class="section-title">Certifications</h2>
+                <h2 class="section-title">Certifications & Recognition</h2>
             </div>
             <div class="cert-slider">
+                <!-- Featured Certification -->
+                <div class="cert-item featured">
+                    <div class="cert-badge">✓ CERTIFIED</div>
+                    <h3>Microsoft Certified Power BI Data Analyst Associate</h3>
+                    <p>November 2025</p>
+                </div>
+                
                 <div class="cert-item">
                     <img src="images/BOARD INFINITY (DATA SCIENCE certificate).png" alt="Data Science Certificate">
                 </div>
                 <div class="cert-item">
-                    <img src="images/publication.png" alt="Publication">
+                    <img src="images/publication.png" alt="Research Publication">
                 </div>
                 <div class="cert-item">
                     <img src="images/BI.png" alt="BI Certificate">
@@ -360,7 +434,7 @@
                     <img src="images/sql.png" alt="SQL Certificate">
                 </div>
                 <div class="cert-item">
-                    <img src="images/yif.png" alt="YIF Certificate">
+                    <img src="images/yif.png" alt="Youth India Foundation Recognition">
                 </div>
             </div>
         </div>
@@ -387,14 +461,21 @@
                         <span class="info-icon">📧</span>
                         <div>
                             <h4>Email</h4>
-                            <p>gpreddy2526@gmail.com</p>
+                            <p><a href="mailto:gpreddy2526@gmail.com">gpreddy2526@gmail.com</a></p>
                         </div>
                     </div>
                     <div class="info-item">
                         <span class="info-icon">📱</span>
                         <div>
                             <h4>Phone</h4>
-                            <p>(850) 339-1894</p>
+                            <p><a href="tel:+18503391894">(850) 339-1894</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">💼</span>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank">linkedin.com/in/gpreddy2525</a></p>
                         </div>
                     </div>
                 </div>
@@ -422,15 +503,17 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>GP Reddy</h3>
-                    <p>Data Analyst & Engineer </p>
+                    <p>Data Scientist | Software Developer</p>
+                    <p>MS Data Science, Florida State University</p>
                 </div>
                 <div class="footer-social">
                     <a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank" class="social-link">LinkedIn</a>
                     <a href="https://github.com/Guru-2525?tab=repositories" target="_blank" class="social-link">GitHub</a>
+                    <a href="mailto:gpreddy2526@gmail.com" class="social-link">Email</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 GP Reddy. All rights reserved.</p>
+                <p>&copy; 2025 GP Reddy. All rights reserved. | Transforming Data into Insights</p>
             </div>
         </div>
     </footer>
@@ -438,6 +521,304 @@
     <!-- JavaScript -->
     <script src="assets/js/dark-script.js"></script>
 </body>
-</html>
+</html>="stat-number">4+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3.58</span>
+                            <span class="stat-label">GPA (MS)</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <h3>Technical Proficiency</h3>
+                    <div class="skill-bars">
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Python & Data Analysis</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>SQL & Databases</span>
+                                <span class="skill-percentage">88%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Machine Learning</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Power BI & Tableau</span>
+                                <span class="skill-percentage">92%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-bar-item">
+                            <div class="skill-bar-header">
+                                <span>Azure Cloud Services</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar-bg">
+                                <div class="skill-bar-fill" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Journey</span>
+                <h2 class="section-title">Work Experience</h2>
+            </div>
+            <div class="timeline">
+                <!-- Azimuth -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jul 2025 – Oct 2025</span>
+                        <h3>Software Developer</h3>
+                        <h4>Azimuth</h4>
+                        <ul>
+                            <li>Developed and optimized business rules using Business Rules Engine and SQL Server, enhancing application performance and ensuring compliance standards</li>
+                            <li>Collaborated with business analysts to translate client and regulatory requirements into technical specifications</li>
+                            <li>Worked in an Agile/DevOps environment (Scrum, Azure DevOps, Git, Jira), engaging in code reviews and deployment pipelines</li>
+                            <li>Created and supported enterprise APIs and data processes, integrating rule sets into core product sets</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <!-- Colt Technology -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Aug 2022 – Jul 2023</span>
+                        <h3>Data Analyst</h3>
+                        <h4>Colt Technology Services</h4>
+                        <ul>
+                            <li>Streamlined customer usage data rating processes through automation using Python, reducing manual effort by 30 hours per month</li>
+                            <li>Cut billing cycle processing time down to just 3 days through process optimization</li>
+                            <li>Led to a 25% reduction in billing disputes within six months through enhanced billing system alignment</li>
+                            <li>Created an Entity-Relationship model to unify financial reporting from 6 different data sources</li>
+                            <li>Improved billing accuracy by 30% and process efficiency by 20% through reporting tools</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <!-- Consultadd -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2022 – Jul 2022</span>
+                        <h3>Data Analyst (MTE)</h3>
+                        <h4>Consultadd</h4>
+                        <ul>
+                            <li>Utilized Power BI to develop dynamic dashboards, improving data accessibility and enabling data-driven decisions that enhanced team efficiency by 25%</li>
+                            <li>Implemented real-time data integration processes, increasing financial model accuracy by 30%</li>
+                            <li>Employed SQL for efficient ETL operations, optimizing data pipeline performance and improving data processing speed by 40%</li>
+                            <li>Used Trello to manage project timelines, leading to a 20% improvement in task tracking and delivery consistency</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <!-- Youth India Foundation -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jan 2021 – Dec 2021</span>
+                        <h3>Finance Analyst</h3>
+                        <h4>Youth India Foundation</h4>
+                        <ul>
+                            <li>Analyzed operational and financial data using Excel, delivering insights that supported strategic decisions and improved reporting accuracy by 25%</li>
+                            <li>Designed and maintained interactive Tableau dashboards used by executive leadership, reducing manual reporting time by 30%</li>
+                            <li>Improved finance team's data pipeline by automating key processes, leading to a 20% increase in efficiency</li>
+                            <li>Recognized as the best Member in the Finance Department - 2021</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                
+                <!-- Choco-Moco -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Jun 2020 – Jan 2023</span>
+                        <h3>Co-Founder & Manager</h3>
+                        <h4>Choco-Moco</h4>
+                        <ul>
+                            <li>Co-founded and managed "Choco-Moco," a customized chocolate printing franchise</li>
+                            <li>Oversaw end-to-end operations including strategic planning, inventory control, procurement, and vendor negotiations</li>
+                            <li>Developed and executed targeted marketing campaigns, managed customer interactions</li>
+                            <li>Achieved a 25% year-over-year increase in business turnover</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🐍</div>
+                    <h3>Python</h3>
+                    <p>Pandas, NumPy, SciPy, Scikit-learn, Matplotlib, Seaborn, PySpark, PyTorch</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>SQL & Databases</h3>
+                    <p>Oracle SQL, MySQL, Query Optimization, Database Design, Stored Procedures</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Power BI</h3>
+                    <p>Microsoft Certified Associate, Dynamic Dashboards, DAX, Data Modeling</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📈</div>
+                    <h3>Tableau</h3>
+                    <p>Interactive Dashboards, Data Storytelling, Visual Analytics, Calculated Fields</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">☁️</div>
+                    <h3>Azure Cloud</h3>
+                    <p>Data Factory, Synapse Analytics, Data Lake, SQL Database, DevOps</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🤖</div>
+                    <h3>Machine Learning</h3>
+                    <p>Regression, Classification, EDA, Data Mining, Predictive Analytics</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📉</div>
+                    <h3>Statistics & R</h3>
+                    <p>Hypothesis Testing, A/B Testing, Statistical Modeling, R Programming</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔄</div>
+                    <h3>ETL & Data Warehousing</h3>
+                    <p>Data Integration, Pipeline Optimization, Data Transformation, ETL Processes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">My Work</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <!-- Project 1 - Rice Quality Detection -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-link">Published in IJIREM 2022 →</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Machine Learning</span>
+                        <h3>Rice Quality Detection Using ML</h3>
+                        <p>Published research implementing ML for automated rice quality detection using image processing and classification. Reduced manual inspection time by 30% through Python-based analysis of rice kernel characteristics.</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 - House Price Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-link">View Analysis →</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Regression Analysis</span>
+                        <h3>House Price Prediction Model</h3>
+                        <p>Regression-based model analyzing house prices in U.S. cities, incorporating location, square footage, and amenities. Achieved 90-97% accuracy using Python and advanced statistical techniques with feature selection.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Retail Sales Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <span class="project-link">View Project →</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">SQL & Python</span>
+                        <h3>Shopping Mall Purchase Pattern Analysis</h3>
+                        <p>Advanced data wrangling and association analysis for 1M+ customers across shopping malls. Developed predictive models and interactive visualizations enhancing marketing strategies and inventory management.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 - PlayStore Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/google.playstore.jpeg" alt="PlayStore Analysis">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Guru-2525/BI_Playstore-data-analysis-assignment-1-/blob/main/Playstore-dataanalysis-Python_assignment-1.ipynb" target="_blank" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Python</span>
+                        <h3>PlayStore Data Analysis</h3>
+                        <p>Analyzed app ratings based on category, content rating, and size. Identified top-performing categories and user preferences using Python data analysis techniques.</p>
+                    </div>
+                </div>
+
+                <!-- Project 5 - E-Commerce Analysis -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/DALL·E 2025-02-23 21.24.53 - A simple yet impactful e-commerce data visualization. A clean laptop screen displays basic bar graphs and pie charts representing sales and customer i.webp" alt="E-Commerce Analysis">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Guru-2525/BI_E-commerce-dataanalysis-python-assignment-2-/blob/main/python%20assignment%202.ipynb" target="_blank" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Python</span>
+                        <h3>E-Commerce Data Analysis</h3>
+                        <p>UK-based online retail dataset analysis revealing customer purchasing patterns, sales trends, and revenue insights using Python and statistical methods.</p>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Ticket Resolution -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/DALL·E 2025-02-23 21.27.06 - A clean and simple data visualization concept for ticket resolution. A laptop screen displays charts and graphs analyzing ticket resolution time, stat.webp" alt="Ticket Resolution">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Guru-2525/BI-DECODE-11.3/blob/main/Hackathon.ipynb" target="_blank" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class
