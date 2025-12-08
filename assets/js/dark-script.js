@@ -1,3 +1,8 @@
+/* ===================================
+   COMPLETE DARK PORTFOLIO JAVASCRIPT
+   Replace your entire JS file with this
+   =================================== */
+
 // Mobile Navigation Toggle
 const navToggle = document.getElementById('navToggle');
 const navMenu = document.getElementById('navMenu');
