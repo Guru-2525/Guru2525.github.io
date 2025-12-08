@@ -1,7 +1,4 @@
-/* ===================================
-   COMPLETE DARK PORTFOLIO CSS
-   Replace your entire CSS file with this
-   =================================== */
+
 
 * {
     margin: 0;
@@ -320,8 +317,8 @@ body {
 
 .profile-container {
     position: relative;
-    width: 450px;
-    height: 450px;
+    width: 700px;
+    height: 700px;
     margin: 0 auto;
 }
 
@@ -417,7 +414,7 @@ body {
 
 /* Position bubbles around the profile (right side) */
 .bubble-1 {
-    top: 5%;
+    top: 10%;
     right: 45%;
     animation-delay: 0s;
 }
