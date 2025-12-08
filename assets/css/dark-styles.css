@@ -1,5 +1,3 @@
-
-
 * {
     margin: 0;
     padding: 0;
@@ -368,38 +366,51 @@ body {
     }
 }
 
-/* ===== FLOATING SKILLS - AROUND PROFILE ===== */
+/* ===== FLOATING SKILLS - AROUND PROFILE (INNOVATIVE ENHANCEMENT) ===== */
+
+/* New Keyframes for subtle movement and pulsing */
+@keyframes subtleFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes subtlePulse {
+    0% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
+    50% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.2); }
+    100% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
+}
+
 .floating-skills {
+    /* Ensures bubbles are positioned relative to the hero section */
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
-    right: 0;
-    pointer-events: none;
+    left: 0; 
+    pointer-events: none; /* Allows clicks to go through to content */
+    z-index: 5;
 }
 
 .skill-bubble {
-    position: absolute;
-    background: rgba(30, 36, 65, 0.95);
-    backdrop-filter: blur(10px);
-    padding: 0.8rem 1.3rem;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    animation: floatSkill 6s ease-in-out infinite;
     pointer-events: all;
-    cursor: pointer;
+    background: var(--dark-card);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    color: var(--text-primary);
+    position: absolute;
+    white-space: nowrap;
+    /* Apply new animations */
+    animation: subtleFloat 5s ease-in-out infinite alternate, 
+               subtlePulse 3s ease-out infinite;
     transition: all 0.3s ease;
 }
 
 .skill-bubble:hover {
-    background: var(--gradient);
-    border-color: transparent;
-    transform: scale(1.1) translateY(-5px);
-    box-shadow: var(--glow);
+    transform: scale(1.1) translateY(-10px) !important;
+    border-color: var(--primary-color);
 }
 
 .skill-icon {
@@ -412,57 +423,14 @@ body {
     color: var(--text-primary);
 }
 
-/* Position bubbles around the profile (right side) */
-.bubble-1 {
-    top: 15%;
-    right: 45%;
-    animation-delay: 0s;
-}
+/* Position bubbles across the whole Hero section (updated coordinates) */
+.bubble-1 { top: 15%; left: 5%; animation-delay: 0s, 0.5s; }
+.bubble-2 { top: 35%; right: 10%; animation-delay: 1s, 0s; }
+.bubble-3 { top: 60%; left: 8%; animation-delay: 2s, 1.5s; }
+.bubble-4 { top: 85%; right: 20%; animation-delay: 3s, 2s; }
+.bubble-5 { top: 5%; right: 25%; animation-delay: 4s, 1s; }
+.bubble-6 { top: 45%; left: 15%; animation-delay: 5s, 2.5s; }
 
-.bubble-2 {
-    top: 15%;
-    right: 15%;
-    animation-delay: 1s;
-}
-
-.bubble-3 {
-    top: 40%;
-    right: 50%;
-    animation-delay: 2s;
-}
-
-.bubble-4 {
-    top: 45%;
-    right: 15%;
-    animation-delay: 3s;
-}
-
-.bubble-5 {
-    bottom: 20%;
-    right: 45%;
-    animation-delay: 4s;
-}
-
-.bubble-6 {
-    bottom: 10%;
-    right: 10%;
-    animation-delay: 5s;
-}
-
-@keyframes floatSkill {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
-    }
-    25% {
-        transform: translateY(-15px) translateX(10px);
-    }
-    50% {
-        transform: translateY(-25px) translateX(-10px);
-    }
-    75% {
-        transform: translateY(-15px) translateX(5px);
-    }
-}
 
 /* ===== SECTIONS ===== */
 section {
@@ -925,7 +893,7 @@ section {
     }
 }
 
-/* ===== RESPONSIVE ===== */
+/* ===== RESPONSIVE (ADDED HIDE RULE FOR FLOATING SKILLS) ===== */
 @media (max-width: 968px) {
     .nav-menu {
         position: fixed;
@@ -972,7 +940,8 @@ section {
         height: 300px;
         margin-top: 3rem;
     }
-
+    
+    /* Hiding on mobile is key for responsiveness */
     .floating-skills {
         display: none;
     }
