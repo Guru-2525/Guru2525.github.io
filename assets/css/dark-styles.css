@@ -513,12 +513,14 @@ section {
 
 .stat-number {
     display: block;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 800;
     background: var(--gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    font-variant-numeric: tabular-nums;
+    content: attr(data-number);
 }
 
 .stat-label {
