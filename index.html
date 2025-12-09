@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>GP Reddy | Data Scientist & Software Developer</title>
+    <title>GP Reddy | Data Analyst & Engineer </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
-    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="assets/css/dark-styles.css" />
     
     <style>
@@ -47,49 +46,46 @@
     font-size: 1rem;
 }
 
-/* Timeline Styles - HORIZONTAL VERSION */
+/* Timeline Styles */
 .experience {
     background: var(--dark-bg);
 }
 
 .timeline {
     position: relative;
-    max-width: 100%;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 0;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
     background: var(--gradient);
-    transform: translateY(-50%);
 }
 
 .timeline-item {
-    display: inline-block;
-    width: 18%;
-    margin: 0 1%;
-    vertical-align: top;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
     position: relative;
 }
 
+.timeline-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
 .timeline-content {
-    width: 100%;
+    width: 45%;
     background: var(--dark-card);
-    padding: 1.5rem;
-    border-radius: 15px;
+    padding: 2rem;
+    border-radius: 20px;
     border: 1px solid rgba(99, 102, 241, 0.2);
     transition: all 0.3s ease;
-    text-align: center;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .timeline-content:hover {
@@ -101,46 +97,58 @@
 .timeline-dot {
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 16px;
-    height: 16px;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
     background: var(--gradient);
     border-radius: 50%;
-    border: 3px solid var(--dark-bg);
+    border: 4px solid var(--dark-bg);
     box-shadow: var(--glow);
     z-index: 10;
 }
 
 .timeline-date {
-    display: block;
-    padding: 0.4rem 0.8rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
     background: rgba(99, 102, 241, 0.2);
     color: var(--primary-color);
-    border-radius: 15px;
-    font-size: 0.75rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
     font-weight: 600;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .timeline-content h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
 }
 
 .timeline-content h4 {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    margin-bottom: 0;
+    margin-bottom: 1rem;
 }
 
 .timeline-content ul {
-    display: none;
+    list-style: none;
+    padding: 0;
 }
 
 .timeline-content li {
-    display: none;
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.timeline-content li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .cert-item.featured {
@@ -184,28 +192,85 @@
 /* Responsive Timeline */
 @media (max-width: 968px) {
     .timeline::before {
-        display: none;
+        left: 0;
     }
     
-    .timeline-item {
-        display: block;
-        width: 100%;
-        margin: 0 0 2rem 0;
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        flex-direction: column;
+        align-items: flex-start;
     }
     
     .timeline-content {
         width: 100%;
-        min-height: auto;
+        margin-left: 2rem;
     }
     
     .timeline-dot {
-        display: none;
+        left: 0;
+        transform: translateX(0);
     }
+}
+
+/* INNOVATIVE ENHANCEMENT: Dynamic Skills Bubble Animation */
+
+@keyframes subtleFloat {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes subtlePulse {
+    0% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
+    50% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.2); }
+    100% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
+}
+
+.floating-skills {
+    /* Ensures bubbles are positioned relative to the hero section */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Allows clicks to go through to content */
+    z-index: 5;
+}
+
+.skill-bubble {
+    pointer-events: all;
+    background: var(--dark-card);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+    color: var(--text-primary);
+    position: absolute;
+    white-space: nowrap;
+    animation: subtleFloat 5s ease-in-out infinite alternate, 
+               subtlePulse 3s ease-out infinite;
+    transition: all 0.3s ease;
+}
+
+.skill-bubble:hover {
+    transform: scale(1.1) translateY(-10px) !important;
+    border-color: var(--primary-color);
+}
+
+.bubble-1 { top: 15%; left: 80%; animation-delay: 0s, 0.5s; }
+.bubble-2 { top: 35%; right: 10%; animation-delay: 1s, 0s; }
+.bubble-3 { top: 60%; left: 80%; animation-delay: 2s, 1.5s; }
+.bubble-4 { top: 85%; right: 20%; animation-delay: 3s, 2s; }
+.bubble-5 { top: 15%; right: 49%; animation-delay: 4s, 1s; }
+.bubble-6 { top: 45%; left: 50%; animation-delay: 5s, 2.5s; }
+
+/* Media query to adjust positions for smaller screens */
+@media (max-width: 768px) {
+    .floating-skills { display: none; } /* Hide bubbles on mobile for cleaner look */
 }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo">GPR</a>
@@ -226,7 +291,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="stars-bg">
             <div class="stars"></div>
@@ -236,12 +300,12 @@
 
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-greeting">👋 Hello, I'm</p>
+                <p class="hero-greeting">👋 Hello, I'm </p>
                 <h1 class="hero-title">
                     <span class="title-line">GP</span>
                     <span class="title-line">Reddy</span>
                 </h1>
-                <h2 class="hero-subtitle">Data Scientist & Software Developer</h2>
+                <h2 class="hero-subtitle">Data Analyst & Engineer </h2>
                 <p class="hero-description">
                     A strategic data professional with expertise in Python, SQL, Machine Learning, 
                     and Azure Cloud. MS in Data Science from Florida State University. 
@@ -273,12 +337,12 @@
             <div class="hero-image">
                 <div class="profile-container">
                     <div class="profile-glow"></div>
-                    <div class="profile-image">
-                        <img src="images/profile.png" alt="GP Reddy Profile" onerror="this.src='https://ui-avatars.com/api/?name=GP+Reddy&size=400&background=667eea&color=fff&bold=true&format=svg'">
+                    <div class="profile-image animated-image-space">
+                        <img src="images/profile.png" alt="GP Reddy Animated Profile Image">
                     </div>
                 </div>
             </div>
-        </div>
+            </div>
 
         <div class="floating-skills">
             <div class="skill-bubble bubble-1">
@@ -295,7 +359,7 @@
             </div>
             <div class="skill-bubble bubble-4">
                 <span class="skill-icon">📊</span>
-                <span class="skill-name">Power BI</span>
+                <span class="skill-name">Data Analysis</span>
             </div>
             <div class="skill-bubble bubble-5">
                 <span class="skill-icon">🤖</span>
@@ -308,11 +372,10 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">Who I Am</span>
+                <span class="section-tag">You Want to Know more </span>
                 <h2 class="section-title">About Me</h2>
             </div>
             <div class="about-content">
@@ -332,7 +395,7 @@
                         <h3>Education</h3>
                         <div class="edu-item">
                             <h4>Florida State University</h4>
-                            <p>MS in Data Science - Computer Science | GPA: 3.58 | Jun 2025</p>
+                            <p>MS in Data Science - Computer Science | GPA: 3.6 | Jun 2025</p>
                         </div>
                         <div class="edu-item">
                             <h4>Amity University</h4>
@@ -342,180 +405,11 @@
                     
                     <div class="about-stats">
                         <div class="stat-item">
-                            <span class="project-tag">Python</span>
-                        <h3>Ticket Resolution Analysis</h3>
-                        <p>Analyzed ticket data to uncover trends in query distribution and optimize resolution efficiency. Delivered actionable insights for improving customer support operations.</p>
-                    </div>
-                </div>
-
-                <!-- Project 7 - Video Game Sales -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/Videogames.png" alt="Video Game Sales">
-                        <div class="project-overlay">
-                            <span class="project-link">Dashboard View</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Excel</span>
-                        <h3>Video Game Sales Dashboard</h3>
-                        <p>Interactive Excel dashboard analyzing sales trends from 1985 to 2016 with regional insights, genre analysis, and platform performance metrics.</p>
-                    </div>
-                </div>
-
-                <!-- Project 8 - Tableau Dashboards -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/Tableau.png" alt="Tableau Dashboard">
-                        <div class="project-overlay">
-                            <span class="project-link">Dashboard View</span>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">Tableau</span>
-                        <h3>Employee & Income Analysis</h3>
-                        <p>Comprehensive Tableau dashboards for employee data visualization and US population income analysis with interactive filters and KPIs.</p>
-                    </div>
-                </div>
-
-                <!-- Project 9 - SQL Analysis -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="images/sqlpic.png" alt="SQL Analysis">
-                        <div class="project-overlay">
-                            <a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-1(SQL).sql" target="_blank" class="project-link">View Project →</a>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <span class="project-tag">SQL</span>
-                        <h3>HR & Northwind Database Analysis</h3>
-                        <p>Complex SQL queries for employee insights and product inventory management. Includes advanced joins, subqueries, and performance optimization.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section class="certifications" id="certifications">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Achievements</span>
-                <h2 class="section-title">Certifications & Recognition</h2>
-            </div>
-            <div class="cert-slider">
-                <!-- Featured Certification -->
-                <div class="cert-item featured">
-                    <div class="cert-badge">✓ CERTIFIED</div>
-                    <h3>Microsoft Certified Power BI Data Analyst Associate</h3>
-                    <p>November 2025</p>
-                </div>
-                
-                <div class="cert-item">
-                    <img src="images/BOARD INFINITY (DATA SCIENCE certificate).png" alt="Data Science Certificate">
-                </div>
-                <div class="cert-item">
-                    <img src="images/publication.png" alt="Research Publication">
-                </div>
-                <div class="cert-item">
-                    <img src="images/BI.png" alt="BI Certificate">
-                </div>
-                <div class="cert-item">
-                    <img src="images/sql.png" alt="SQL Certificate">
-                </div>
-                <div class="cert-item">
-                    <img src="images/yif.png" alt="Youth India Foundation Recognition">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's Work Together</h2>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="info-item">
-                        <span class="info-icon">📍</span>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Jacksonville, FL, US, 32256</p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon">📧</span>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="mailto:gpreddy2526@gmail.com">gpreddy2526@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon">📱</span>
-                        <div>
-                            <h4>Phone</h4>
-                            <p><a href="tel:+18503391894">(850) 339-1894</a></p>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon">💼</span>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <p><a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank">linkedin.com/in/gpreddy2525</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>GP Reddy</h3>
-                    <p>Data Scientist | Software Developer</p>
-                    <p>MS Data Science, Florida State University</p>
-                </div>
-                <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank" class="social-link">LinkedIn</a>
-                    <a href="https://github.com/Guru-2525?tab=repositories" target="_blank" class="social-link">GitHub</a>
-                    <a href="mailto:gpreddy2526@gmail.com" class="social-link">Email</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 GP Reddy. All rights reserved. | Transforming Data into Insights</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
-    <script src="assets/js/dark-script.js"></script>
-</body>
-</html>="stat-number">4+</span>
+                            <span class="stat-number">4+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3.58</span>
+                            <span class="stat-number">3.6 </span>
                             <span class="stat-label">GPA (MS)</span>
                         </div>
                         <div class="stat-item">
@@ -572,31 +466,12 @@
                                 <div class="skill-bar-fill" data-width="80%"></div>
                             </div>
                         </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>Data Visualization (Excel)</span>
-                                <span class="skill-percentage">90%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-bar-item">
-                            <div class="skill-bar-header">
-                                <span>ETL & Data Warehousing</span>
-                                <span class="skill-percentage">85%</span>
-                            </div>
-                            <div class="skill-bar-bg">
-                                <div class="skill-bar-fill" data-width="85%"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section class="experience" id="experience">
         <div class="container">
             <div class="section-header">
@@ -604,7 +479,6 @@
                 <h2 class="section-title">Work Experience</h2>
             </div>
             <div class="timeline">
-                <!-- Azimuth -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Jul 2025 – Oct 2025</span>
@@ -620,7 +494,6 @@
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <!-- Colt Technology -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Aug 2022 – Jul 2023</span>
@@ -637,7 +510,6 @@
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <!-- Consultadd -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Jan 2022 – Jul 2022</span>
@@ -653,7 +525,6 @@
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <!-- Youth India Foundation -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Jan 2021 – Dec 2021</span>
@@ -669,7 +540,6 @@
                     <div class="timeline-dot"></div>
                 </div>
                 
-                <!-- Choco-Moco -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">Jun 2020 – Jan 2023</span>
@@ -688,7 +558,6 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section class="skills" id="skills">
         <div class="container">
             <div class="section-header">
@@ -740,7 +609,6 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header">
@@ -748,7 +616,6 @@
                 <h2 class="section-title">Featured Projects</h2>
             </div>
             <div class="projects-grid">
-                <!-- Project 1 - Rice Quality Detection -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-overlay">
@@ -762,7 +629,6 @@
                     </div>
                 </div>
 
-                <!-- Project 2 - House Price Analysis -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-overlay">
@@ -776,7 +642,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3 - Retail Sales Analysis -->
                 <div class="project-card">
                     <div class="project-image">
                         <div class="project-overlay">
@@ -790,7 +655,6 @@
                     </div>
                 </div>
 
-                <!-- Project 4 - PlayStore Analysis -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/google.playstore.jpeg" alt="PlayStore Analysis">
@@ -805,7 +669,6 @@
                     </div>
                 </div>
 
-                <!-- Project 5 - E-Commerce Analysis -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/DALL·E 2025-02-23 21.24.53 - A simple yet impactful e-commerce data visualization. A clean laptop screen displays basic bar graphs and pie charts representing sales and customer i.webp" alt="E-Commerce Analysis">
@@ -820,7 +683,6 @@
                     </div>
                 </div>
 
-                <!-- Project 6 - Ticket Resolution -->
                 <div class="project-card">
                     <div class="project-image">
                         <img src="images/DALL·E 2025-02-23 21.27.06 - A clean and simple data visualization concept for ticket resolution. A laptop screen displays charts and graphs analyzing ticket resolution time, stat.webp" alt="Ticket Resolution">
@@ -829,4 +691,171 @@
                         </div>
                     </div>
                     <div class="project-content">
-                        <span class
+                        <span class="project-tag">Python</span>
+                        <h3>Ticket Resolution Analysis</h3>
+                        <p>Analyzed ticket data to uncover trends in query distribution and optimize resolution efficiency. Delivered actionable insights for improving customer support operations.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/Videogames.png" alt="Video Game Sales">
+                        <div class="project-overlay">
+                            <span class="project-link">Dashboard View</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Excel</span>
+                        <h3>Video Game Sales Dashboard</h3>
+                        <p>Interactive Excel dashboard analyzing sales trends from 1985 to 2016 with regional insights, genre analysis, and platform performance metrics.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/Tableau.png" alt="Tableau Dashboard">
+                        <div class="project-overlay">
+                            <span class="project-link">Dashboard View</span>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">Tableau</span>
+                        <h3>Employee & Income Analysis</h3>
+                        <p>Comprehensive Tableau dashboards for employee data visualization and US population income analysis with interactive filters and KPIs.</p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="images/sqlpic.png" alt="SQL Analysis">
+                        <div class="project-overlay">
+                            <a href="https://github.com/Guru-2525/Assigments_Repository/blob/main/BI.Assignment-1(SQL).sql" target="_blank" class="project-link">View Project →</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-tag">SQL</span>
+                        <h3>HR & Northwind Database Analysis</h3>
+                        <p>Complex SQL queries for employee insights and product inventory management. Includes advanced joins, subqueries, and performance optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="certifications" id="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Achievements</span>
+                <h2 class="section-title">Certifications & Recognition</h2>
+            </div>
+            <div class="cert-slider">
+                <div class="cert-item featured">
+                    <div class="cert-badge">✓ CERTIFIED</div>
+                    <h3>Microsoft Certified Power BI Data Analyst Associate</h3>
+                    <p>November 2025</p>
+                </div>
+                
+                <div class="cert-item">
+                    <img src="images/BOARD INFINITY (DATA SCIENCE certificate).png" alt="Data Science Certificate">
+                </div>
+                <div class="cert-item">
+                    <img src="images/publication.png" alt="Research Publication">
+                </div>
+                <div class="cert-item">
+                    <img src="images/BI.png" alt="BI Certificate">
+                </div>
+                <div class="cert-item">
+                    <img src="images/sql.png" alt="SQL Certificate">
+                </div>
+                <div class="cert-item">
+                    <img src="images/yif.png" alt="Youth India Foundation Recognition">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Let's Convert What? into Wow!! <h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Jacksonville, FL, US, 32256</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:gpreddy2526@gmail.com">gpreddy2526@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📱</span>
+                        <div>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+18503391894">(850) 339-1894</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">💼</span>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank">linkedin.com/in/gpreddy2525</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>GP Reddy</h3>
+                    <p>Data Analyst | Data Engineer | Visualization Expert </p>
+                    <p>MS Data Science, Florida State University</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/gpreddy2525/" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="https://github.com/Guru-2525?tab=repositories" target="_blank" class="social-link">GitHub</a>
+                    <a href="mailto:gpreddy2526@gmail.com" class="social-link">Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 GP Reddy. All rights reserved. | Transforming Data into Insights</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/dark-script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
