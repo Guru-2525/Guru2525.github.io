@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <title>GP Reddy | Data Analyst & Engineer </title>
+    <title>GP Reddy | Data Scientist & Software Developer</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     
@@ -46,110 +46,7 @@
     font-size: 1rem;
 }
 
-/* Timeline Styles */
-.experience {
-    background: var(--dark-bg);
-}
-
-.timeline {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 2px;
-    height: 100%;
-    background: var(--gradient);
-}
-
-.timeline-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 3rem;
-    position: relative;
-}
-
-.timeline-item:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.timeline-content {
-    width: 45%;
-    background: var(--dark-card);
-    padding: 2rem;
-    border-radius: 20px;
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    transition: all 0.3s ease;
-}
-
-.timeline-content:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
-    box-shadow: var(--glow);
-}
-
-.timeline-dot {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
-    background: var(--gradient);
-    border-radius: 50%;
-    border: 4px solid var(--dark-bg);
-    box-shadow: var(--glow);
-    z-index: 10;
-}
-
-.timeline-date {
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    background: rgba(99, 102, 241, 0.2);
-    color: var(--primary-color);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.timeline-content h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.timeline-content h4 {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    margin-bottom: 1rem;
-}
-
-.timeline-content ul {
-    list-style: none;
-    padding: 0;
-}
-
-.timeline-content li {
-    color: var(--text-secondary);
-    margin-bottom: 0.8rem;
-    padding-left: 1.5rem;
-    position: relative;
-    line-height: 1.6;
-}
-
-.timeline-content li::before {
-    content: '▹';
-    position: absolute;
-    left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
-}
+/* Timeline styles removed. New horizontal experience styles are in dark-styles.css */
 
 .cert-item.featured {
     border: 2px solid var(--primary-color);
@@ -189,85 +86,11 @@
     color: var(--primary-color);
 }
 
-/* Responsive Timeline */
+/* Media Query remains, but for the new structure */
 @media (max-width: 968px) {
-    .timeline::before {
-        left: 0;
-    }
-    
-    .timeline-item,
-    .timeline-item:nth-child(even) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .timeline-content {
-        width: 100%;
-        margin-left: 2rem;
-    }
-    
-    .timeline-dot {
-        left: 0;
-        transform: translateX(0);
-    }
+    /* Timeline styles removed for mobile */
 }
 
-/* INNOVATIVE ENHANCEMENT: Dynamic Skills Bubble Animation */
-
-@keyframes subtleFloat {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
-}
-
-@keyframes subtlePulse {
-    0% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
-    50% { box-shadow: 0 0 15px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.2); }
-    100% { box-shadow: 0 0 10px rgba(99, 102, 241, 0.4); }
-}
-
-.floating-skills {
-    /* Ensures bubbles are positioned relative to the hero section */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Allows clicks to go through to content */
-    z-index: 5;
-}
-
-.skill-bubble {
-    pointer-events: all;
-    background: var(--dark-card);
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-weight: 500;
-    color: var(--text-primary);
-    position: absolute;
-    white-space: nowrap;
-    animation: subtleFloat 5s ease-in-out infinite alternate, 
-               subtlePulse 3s ease-out infinite;
-    transition: all 0.3s ease;
-}
-
-.skill-bubble:hover {
-    transform: scale(1.1) translateY(-10px) !important;
-    border-color: var(--primary-color);
-}
-
-.bubble-1 { top: 15%; left: 80%; animation-delay: 0s, 0.5s; }
-.bubble-2 { top: 35%; right: 10%; animation-delay: 1s, 0s; }
-.bubble-3 { top: 60%; left: 80%; animation-delay: 2s, 1.5s; }
-.bubble-4 { top: 85%; right: 20%; animation-delay: 3s, 2s; }
-.bubble-5 { top: 15%; right: 49%; animation-delay: 4s, 1s; }
-.bubble-6 { top: 45%; left: 50%; animation-delay: 5s, 2.5s; }
-
-/* Media query to adjust positions for smaller screens */
-@media (max-width: 768px) {
-    .floating-skills { display: none; } /* Hide bubbles on mobile for cleaner look */
-}
     </style>
 </head>
 <body>
@@ -300,12 +123,12 @@
 
         <div class="hero-content">
             <div class="hero-text">
-                <p class="hero-greeting">👋 Hello, I'm </p>
+                <p class="hero-greeting">👋 Hello, I'm</p>
                 <h1 class="hero-title">
                     <span class="title-line">GP</span>
                     <span class="title-line">Reddy</span>
                 </h1>
-                <h2 class="hero-subtitle">Data Analyst & Engineer </h2>
+                <h2 class="hero-subtitle">Data Scientist & Software Developer</h2>
                 <p class="hero-description">
                     A strategic data professional with expertise in Python, SQL, Machine Learning, 
                     and Azure Cloud. MS in Data Science from Florida State University. 
@@ -338,11 +161,11 @@
                 <div class="profile-container">
                     <div class="profile-glow"></div>
                     <div class="profile-image animated-image-space">
-                        <img src="images/profile.png" alt="GP Reddy Animated Profile Image">
+                        <img src="images/animated-profile.gif" alt="GP Reddy Animated Profile Image">
                     </div>
                 </div>
             </div>
-            </div>
+        </div>
 
         <div class="floating-skills">
             <div class="skill-bubble bubble-1">
@@ -359,7 +182,7 @@
             </div>
             <div class="skill-bubble bubble-4">
                 <span class="skill-icon">📊</span>
-                <span class="skill-name">Data Analysis</span>
+                <span class="skill-name">Power BI</span>
             </div>
             <div class="skill-bubble bubble-5">
                 <span class="skill-icon">🤖</span>
@@ -375,7 +198,7 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">You Want to Know more </span>
+                <span class="section-tag">Who I Am</span>
                 <h2 class="section-title">About Me</h2>
             </div>
             <div class="about-content">
@@ -409,7 +232,7 @@
                             <span class="stat-label">Years Experience</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">3.6 </span>
+                            <span class="stat-number">3.6</span>
                             <span class="stat-label">GPA (MS)</span>
                         </div>
                         <div class="stat-item">
@@ -478,84 +301,49 @@
                 <span class="section-tag">My Journey</span>
                 <h2 class="section-title">Work Experience</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jul 2025 – Oct 2025</span>
-                        <h3>Software Developer</h3>
-                        <h4>Azimuth</h4>
-                        <ul>
-                            <li>Developed and optimized business rules using Business Rules Engine and SQL Server, enhancing application performance and ensuring compliance standards</li>
-                            <li>Collaborated with business analysts to translate client and regulatory requirements into technical specifications</li>
-                            <li>Worked in an Agile/DevOps environment (Scrum, Azure DevOps, Git, Jira), engaging in code reviews and deployment pipelines</li>
-                            <li>Created and supported enterprise APIs and data processes, integrating rule sets into core product sets</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-dot"></div>
+            
+            <div class="horizontal-experience-list">
+                
+                <div class="exp-item">
+                    <span class="exp-date">Jul 2025 – Oct 2025</span>
+                    <h3 class="exp-role">Software Developer</h3>
+                    <h4 class="exp-company">Azimuth</h4>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Aug 2022 – Jul 2023</span>
-                        <h3>Data Analyst</h3>
-                        <h4>Colt Technology Services</h4>
-                        <ul>
-                            <li>Streamlined customer usage data rating processes through automation using Python, reducing manual effort by 30 hours per month</li>
-                            <li>Cut billing cycle processing time down to just 3 days through process optimization</li>
-                            <li>Led to a 25% reduction in billing disputes within six months through enhanced billing system alignment</li>
-                            <li>Created an Entity-Relationship model to unify financial reporting from 6 different data sources</li>
-                            <li>Improved billing accuracy by 30% and process efficiency by 20% through reporting tools</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-dot"></div>
+                <div class="exp-separator"></div>
+
+                <div class="exp-item">
+                    <span class="exp-date">Aug 2022 – Jul 2023</span>
+                    <h3 class="exp-role">Data Analyst</h3>
+                    <h4 class="exp-company">Colt Technology Services</h4>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jan 2022 – Jul 2022</span>
-                        <h3>Data Analyst (MTE)</h3>
-                        <h4>Consultadd</h4>
-                        <ul>
-                            <li>Utilized Power BI to develop dynamic dashboards, improving data accessibility and enabling data-driven decisions that enhanced team efficiency by 25%</li>
-                            <li>Implemented real-time data integration processes, increasing financial model accuracy by 30%</li>
-                            <li>Employed SQL for efficient ETL operations, optimizing data pipeline performance and improving data processing speed by 40%</li>
-                            <li>Used Trello to manage project timelines, leading to a 20% improvement in task tracking and delivery consistency</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-dot"></div>
+                <div class="exp-separator"></div>
+
+                <div class="exp-item">
+                    <span class="exp-date">Jan 2022 – Jul 2022</span>
+                    <h3 class="exp-role">Data Analyst (MTE)</h3>
+                    <h4 class="exp-company">Consultadd</h4>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jan 2021 – Dec 2021</span>
-                        <h3>Finance Analyst</h3>
-                        <h4>Youth India Foundation</h4>
-                        <ul>
-                            <li>Analyzed operational and financial data using Excel, delivering insights that supported strategic decisions and improved reporting accuracy by 25%</li>
-                            <li>Designed and maintained interactive Tableau dashboards used by executive leadership, reducing manual reporting time by 30%</li>
-                            <li>Improved finance team's data pipeline by automating key processes, leading to a 20% increase in efficiency</li>
-                            <li>Recognized as the best Member in the Finance Department - 2021</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-dot"></div>
+                <div class="exp-separator"></div>
+
+                <div class="exp-item">
+                    <span class="exp-date">Jan 2021 – Dec 2021</span>
+                    <h3 class="exp-role">Finance Analyst</h3>
+                    <h4 class="exp-company">Youth India Foundation</h4>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Jun 2020 – Jan 2023</span>
-                        <h3>Co-Founder & Manager</h3>
-                        <h4>Choco-Moco</h4>
-                        <ul>
-                            <li>Co-founded and managed "Choco-Moco," a customized chocolate printing franchise</li>
-                            <li>Oversaw end-to-end operations including strategic planning, inventory control, procurement, and vendor negotiations</li>
-                            <li>Developed and executed targeted marketing campaigns, managed customer interactions</li>
-                            <li>Achieved a 25% year-over-year increase in business turnover</li>
-                        </ul>
-                    </div>
-                    <div class="timeline-dot"></div>
+                <div class="exp-separator"></div>
+
+                <div class="exp-item">
+                    <span class="exp-date">Jun 2020 – Jan 2023</span>
+                    <h3 class="exp-role">Co-Founder & Manager</h3>
+                    <h4 class="exp-company">Choco-Moco</h4>
                 </div>
+                
             </div>
-        </div>
+            </div>
     </section>
 
     <section class="skills" id="skills">
@@ -604,6 +392,16 @@
                     <div class="skill-icon">🔄</div>
                     <h3>ETL & Data Warehousing</h3>
                     <p>Data Integration, Pipeline Optimization, Data Transformation, ETL Processes</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">💾</div>
+                    <h3>Git & DevOps</h3>
+                    <p>GitHub, Azure DevOps, Version Control, CI/CD Pipelines, Jira/Trello</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🏗️</div>
+                    <h3>Data Modeling</h3>
+                    <p>Star/Snowflake Schema, Data Warehouse Design, Kimball, ER Diagrams</p>
                 </div>
             </div>
         </div>
@@ -778,7 +576,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-tag">Get In Touch</span>
-                <h2 class="section-title">Let's Convert What? into Wow!! <h2>
+                <h2 class="section-title">Let's Work Together</h2>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
@@ -835,7 +633,7 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>GP Reddy</h3>
-                    <p>Data Analyst | Data Engineer | Visualization Expert </p>
+                    <p>Data Scientist | Software Developer</p>
                     <p>MS Data Science, Florida State University</p>
                 </div>
                 <div class="footer-social">
@@ -853,9 +651,3 @@
     <script src="assets/js/dark-script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
