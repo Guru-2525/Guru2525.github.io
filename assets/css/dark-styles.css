@@ -498,7 +498,7 @@ section {
 
 .stat-item {
     text-align: center;
-    padding: 2rem;
+    padding: 3rem;
     background: var(--dark-card);
     border-radius: 20px;
     border: 1px solid rgba(99, 102, 241, 0.2);
